@@ -1,0 +1,10 @@
+gdown
+torch
+torchaudio
+pandas
+scikit-learn
+tqdm
+torchvision
+optuna
+ipykernel
+matplotlib
