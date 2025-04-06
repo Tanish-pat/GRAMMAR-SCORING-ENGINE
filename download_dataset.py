@@ -46,37 +46,3 @@ def download_from_drive(folder_id, destination):
 if __name__ == "__main__":
     if is_drive_folder_accessible(FULL_LINK):
         download_from_drive(FOLDER_ID, DESTINATION)
-
-
-
-
-
-
-
-
-# import os
-# import subprocess
-
-# FULL_LINK = "https://drive.google.com/drive/folders/1nLuqJjhzmznew5WRYAjVO5GG8UhU4OM2?usp=sharing"
-# FOLDER_ID = "1nLuqJjhzmznew5WRYAjVO5GG8UhU4OM2"
-# DESTINATION = "dataset"
-
-# def download_from_drive(folder_id, destination):
-#     if os.path.exists(destination):
-#         print(f"✅ Dataset folder already exists at '{destination}'. Skipping download.")
-#         return
-
-#     print(f"📥 Downloading dataset to '{destination}'...")
-#     try:
-#         subprocess.run([
-#             "gdown",
-#             "--folder",
-#             f"https://drive.google.com/drive/folders/{folder_id}",
-#             "-O", destination
-#         ], check=True)
-#         print("✔️ Download complete.")
-#     except subprocess.CalledProcessError:
-#         print("❌ Failed to download dataset. Ensure gdown is installed and the folder is set to public (Viewer access).")
-
-# if __name__ == "__main__":
-#     download_from_drive(FOLDER_ID, DESTINATION)
