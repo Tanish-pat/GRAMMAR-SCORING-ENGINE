@@ -1,2 +1,4 @@
 .venv_kernel
 venv
+dataset/audios_test/
+dataset/audios_train/
