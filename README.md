@@ -6,32 +6,6 @@ The objective of this project is to build an automated **Grammar Scoring Engine*
 
 ---
 
-### 🛠️ Core Challenges
-
-This task presented multiple technical and real-world constraints:
-
-| Challenge                        | Description                                                                 |
-|----------------------------------|-----------------------------------------------------------------------------|
-| **Data Regime**                  | **444 training audio files**, requiring aggressive transfer learning   |
-| **Continuous Output Prediction** | Requires fine-grained **regression**, not classification                   |
-| **Acoustic Variability**         | Varying accents, intonation, recording conditions, and pacing              |
-| **Latency Constraints**          | Needs to be efficient enough for near-real-time evaluation pipelines       |
-
----
-
-### 🚧 Our Dual-Track Strategy
-
-To address the above challenges **robustly and modularly**, we designed **two complementary pipelines**, each targeting a different balance between computational complexity and expressive power:
-
-| Module                | Strategy                                                                 |
-|-----------------------|--------------------------------------------------------------------------|
-| **`regressional_part/`** | 🧠 **Feature-level regression**: Wav2Vec2 embeddings → statistical pooling → MLP |
-| **`transformer_part/`**  | 🔬 **Sequence-level regression**: Full token embeddings → Transformer encoder  |
-
-Each of these modules operates **independently** and includes its **own `train_final.py` and `main.ipynb`**, making it easy to evaluate or extend them in isolation.
-
----
-
 ### 📦 Modular Folder Structure
 
 ```bash
@@ -56,11 +30,37 @@ GrammarScoring/
 │   ├── final_regression_model_submit.pt    # Modelweights
 │   └── test_predictions_submit.csv         # Final predictions
 │
-├── .gitignore                              # .gitignore fiel 
+├── .gitignore                              # .gitignore file
 ├── download_dataset.py                     # Run this first to setup the dataset folder
 ├── requirements.txt                        # Requirements needed for this project  
 └── README.md                               # Project-wide technical summary
 ```
+
+---
+
+### 🛠️ Core Challenges
+
+This task presented multiple technical and real-world constraints:
+
+| Challenge                        | Description                                                                 |
+|----------------------------------|-----------------------------------------------------------------------------|
+| **Data Regime**                  | **444 training audio files**, requiring aggressive transfer learning   |
+| **Continuous Output Prediction** | Requires fine-grained **regression**, not classification                   |
+| **Acoustic Variability**         | Varying accents, intonation, recording conditions, and pacing              |
+| **Latency Constraints**          | Needs to be efficient enough for near-real-time evaluation pipelines       |
+
+---
+
+### 🚧 Our Dual-Track Strategy
+
+To address the above challenges **robustly and modularly**, we designed **two complementary pipelines**, each targeting a different balance between computational complexity and expressive power:
+
+| Module                | Strategy                                                                 |
+|-----------------------|--------------------------------------------------------------------------|
+| **`regressional_part/`** | 🧠 **Feature-level regression**: Wav2Vec2 embeddings → statistical pooling → MLP |
+| **`transformer_part/`**  | 🔬 **Sequence-level regression**: Full token embeddings → Transformer encoder  |
+
+Each of these modules operates **independently** and includes its **own `train_final.py` and `main.ipynb`**, making it easy to evaluate or extend them in isolation.
 
 ---
 
