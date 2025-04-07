@@ -56,6 +56,9 @@ GrammarScoring/
 │   ├── final_regression_model_submit.pt    # Modelweights
 │   └── test_predictions_submit.csv         # Final predictions
 │
+├── .gitignore                              # .gitignore fiel 
+├── download_dataset.py                     # Run this first to setup the dataset folder
+├── requirements.txt                        # Requirements needed for this project  
 └── README.md                               # Project-wide technical summary
 ```
 
